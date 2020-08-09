@@ -14,6 +14,13 @@ function App() {
       task
     ])
   }
+
+  //delete a task
+  const deleteTask = (id) =>{
+   const taskDelete = tasks.filter(task=>task.id !== id)
+   setTasks(taskDelete)
+  }
+  //show a title conditional
   const title = tasks.length === 0 ? "Add task to start" : "List of tasks";
 
   return (
@@ -36,6 +43,7 @@ function App() {
             <Task
               task={task}
               key={task.id}
+              deleteTask={deleteTask}
             />
           )}
           </div>
