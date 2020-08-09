@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Error from "./Error";
 import { v4 } from 'uuid'
-const Form = () => {
+const Form = ({addTask}) => {
   //state to the inputForm
   const [form, setForm] = useState({
     name: "",
@@ -30,7 +30,7 @@ const Form = () => {
     } else {
        //add id to each task 
        form.id = v4();
-       console.log(form)
+       addTask(form)
         //reset form
       setForm({
         name: "",
