@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import uuid from 'uuid/v4'
 import Error from "./Error";
+import { v4 } from 'uuid'
 const Form = () => {
   //state to the inputForm
   const [form, setForm] = useState({
@@ -28,8 +28,8 @@ const Form = () => {
       setError(true);
       return;
     } else {
-       //add id to form 
-       form.id = uuid();
+       //add id to each task 
+       form.id = v4();
        console.log(form)
         //reset form
       setForm({
