@@ -1,5 +1,6 @@
 import React from "react";
 import "./Task.css";
+import PropTypes from 'prop-types'
 
 const Task = ({ task, deleteTask }) => {
   if (task.length === 0) return null;
@@ -19,12 +20,17 @@ const Task = ({ task, deleteTask }) => {
           Date: <span className="normal">{task.date}</span>
         </p>
         <button 
-        className="btn btn-danger btn-block"
+        className="btn btn-danger btn-block bold"
         onClick={()=>handleClick()}
         >DELETE &times;</button>
       </div>
     </>
   );
 };
+
+Task.propTypes = {
+  task: PropTypes.object.isRequired,
+  deleteTask: PropTypes.func.isRequired
+}
 
 export default Task;

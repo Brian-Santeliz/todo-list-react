@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Error from "./Error";
 import { v4 } from 'uuid'
+import PropTypes from 'prop-types'
+
 const Form = ({addTask}) => {
   //state to the inputForm
   const [form, setForm] = useState({
@@ -46,7 +48,7 @@ const Form = ({addTask}) => {
       <div className="card-header text-center">
         <h4>Add task</h4>
       </div>
-      <form className=" card card-body" onSubmit={(e) => handleSubmit(e)}>
+      <form className=" card card-body mb-3" onSubmit={(e) => handleSubmit(e)}>
         <div className="form-group">
           <label htmlFor="name">Typed you task name:</label>
           <input
@@ -88,5 +90,9 @@ const Form = ({addTask}) => {
     </>
   );
 };
+
+Form.propTypes = {
+  addTask:PropTypes.func.isRequired
+}
 
 export default Form;
