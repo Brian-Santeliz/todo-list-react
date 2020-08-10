@@ -1,11 +1,32 @@
-import React,{ useState } from 'react';
+import React,{ useState, useEffect } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
 import Task from './components/Task';
 
 function App() {
+
+  //get tasjs of localStorage
+  let taskslS = JSON.parse(localStorage.getItem('list'));
+  if(taskslS === null){
+     taskslS = []
+  }
+
   //state for all the task
-  const [tasks, setTasks] =useState([]) 
+  const [tasks, setTasks] =useState(taskslS) 
+
+    //save the tasks in localStorage
+
+   useEffect(() => {
+
+       if(taskslS){
+         localStorage.setItem('list', JSON.stringify(tasks))
+       }else{
+        localStorage.setItem('list',  JSON.stringify([]))
+
+       }
+    
+   }, [tasks, taskslS])
+  
 
   //take a task & add to the state of Tasks
   const addTask = task =>{
@@ -22,6 +43,9 @@ function App() {
   }
   //show a title conditional
   const title = tasks.length === 0 ? "Add task to start" : "List of tasks";
+
+
+
 
   return (
 
