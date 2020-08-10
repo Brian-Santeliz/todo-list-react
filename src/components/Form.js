@@ -26,7 +26,7 @@ const Form = ({addTask}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     ///Validate the form
-    if (date === "" || description === "" || name === "") {
+    if (date.trim() === "" || description.trim() === "" || name.trim() === "") {
       setError(true);
       return;
     } else {
