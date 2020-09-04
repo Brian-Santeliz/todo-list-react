@@ -44,11 +44,11 @@ const Form = ({addTask}) => {
   };
   return (
     <>
-      {error ? <Error message="All fields is required" /> : null}
+      {error && <Error message="All fields is required" /> }
       <div className="card-header text-center">
         <h4>Add task</h4>
       </div>
-      <form className=" card card-body mb-3" onSubmit={(e) => handleSubmit(e)}>
+      <form className=" card card-body mb-3" onSubmit={ handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Typed you task name:</label>
           <input
@@ -57,7 +57,7 @@ const Form = ({addTask}) => {
             placeholder="Name"
             name="name"
             id="name"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             value={name}
           />
         </div>
@@ -68,7 +68,7 @@ const Form = ({addTask}) => {
             id="description"
             placeholder="Description..."
             className="form-control"
-            onChange={(e) => handleChange(e)}
+            onChange={ handleChange}
             value={description}
           ></textarea>
         </div>
@@ -79,7 +79,7 @@ const Form = ({addTask}) => {
             name="date"
             id="date"
             className="form-control"
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             value={date}
           />
         </div>

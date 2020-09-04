@@ -4,7 +4,7 @@ import Form from "./components/Form";
 import Task from "./components/Task";
 
 function App() {
-  //get tasjs of localStorage
+  //get tasks of localStorage
   let taskslS = JSON.parse(localStorage.getItem("list"));
   if (taskslS === null) {
     taskslS = [];
