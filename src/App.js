@@ -38,14 +38,14 @@ function App() {
 
   return (
     <>
-      <Header title="Todo list React" />
+      <Header title="List Task's App" />
       <div className="container mt-4">
         <div className="row pt-3">
           <div className="col-md-6">
             <Form addTask={addTask} />
           </div>
           <div className="col-md-6">
-            <h1 className="text-center mt-3">{title}</h1>
+            <h1 className="text-center mt-3" style={{textTransform:'uppercase', fontSize:'1.5em'}}>{title}</h1>
             <div className="container pt-3">
               {tasks.map((task) => (
                 <Task task={task} key={task.id} deleteTask={deleteTask} />

@@ -50,11 +50,11 @@ const Form = ({addTask}) => {
     <>
       {error && <Error message="All fields is required" /> }
       <div className="card-header text-center">
-        <h4>Add task</h4>
+        <h4>Tasks Form</h4>
       </div>
       <form className=" card card-body mb-3" onSubmit={ handleSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Typed you task name:</label>
+          <label htmlFor="name">Type you task name:</label>
           <input
             type="text"
             className="form-control"
