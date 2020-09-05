@@ -1,12 +1,26 @@
 import React from "react";
 import "./Task.css";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 
 const Task = ({ task, deleteTask }) => {
   if (task.length === 0) return null;
-  const handleClick = ()=>{
-    deleteTask(task.id)
-  }
+  const handleClick = () => {
+    Swal.fire({
+      title: "Delete!",
+      text: `Are you sure delete task: ${task.name}?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Delete",
+    }).then((result) => {
+      if (result.value) {
+        deleteTask(task.id);
+        Swal.fire("Deleted!", "Task deleted successfully!", "success");
+      }
+    });
+  };
   return (
     <>
       <div className="bg text-white p-3 mb-3">
@@ -19,10 +33,9 @@ const Task = ({ task, deleteTask }) => {
         <p className=" bold">
           Date: <span className="normal">{task.date}</span>
         </p>
-        <button 
-        className="btn btn-danger btn-block bold"
-        onClick={()=>handleClick()}
-        >DELETE &times;</button>
+        <button className="btn btn-danger btn-block bold" onClick={handleClick}>
+          DELETE &times;
+        </button>
       </div>
     </>
   );
@@ -30,7 +43,7 @@ const Task = ({ task, deleteTask }) => {
 
 Task.propTypes = {
   task: PropTypes.object.isRequired,
-  deleteTask: PropTypes.func.isRequired
-}
+  deleteTask: PropTypes.func.isRequired,
+};
 
 export default Task;

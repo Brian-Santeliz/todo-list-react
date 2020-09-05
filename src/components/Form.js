@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Error from "./Error";
 import { v4 } from 'uuid'
 import PropTypes from 'prop-types'
+import Swal from 'sweetalert2'
 
 const Form = ({addTask}) => {
   //state to the inputForm
@@ -33,6 +34,9 @@ const Form = ({addTask}) => {
        //add id to each task 
        form.id = v4();
        addTask(form)
+       //add alert
+      Swal.fire('Good!', 'Task saved successfully!', 'success')
+
         //reset form
       setForm({
         name: "",
