@@ -1,4 +1,4 @@
-App: https://focused-galileo-5f8f3b.netlify.app/
+
 ---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
