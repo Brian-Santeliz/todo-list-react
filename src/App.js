@@ -38,7 +38,7 @@ function App() {
 
   return (
     <>
-      <Header title="List Task's App" />
+      <Header title="Task's App" />
       <div className="container mt-4">
         <div className="row pt-3">
           <div className="col-md-6">
